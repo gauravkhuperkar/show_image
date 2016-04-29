@@ -10,6 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var urlTextField: UITextField!
+    
+    @IBAction func submit(sender: UIButton) {
+        let iniputUrl = urlTextField.text ?? ""
+        if isValidUrl(iniputUrl) {
+            // do something
+        } else {
+            // do somrthing
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -18,6 +29,12 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+   
+    
+    func isValidUrl(url: String) -> Bool {
+        // check if url is valid or not
+        return false
     }
 
 
