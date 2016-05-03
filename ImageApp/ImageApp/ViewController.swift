@@ -10,7 +10,6 @@ class ViewController: UIViewController {
     
     @IBAction func submit(sender: UIButton) {
         
-        let lableMsg = SetErrorMsgToLable()
         let inputUrl = NSURL(string: urlTextField.text!)
         
         if let url = inputUrl {
@@ -26,14 +25,14 @@ class ViewController: UIViewController {
                         self.activityController.stopAnimating()
                     } else {
                         print("else wala part")
-                        lableMsg.showErr(self.errorInfoLable, msg: "Invalid")
+                        self.giveError("Invalid")
                     }
                 })
             }).resume()
             
         } else {
             print("no... url with space")
-            lableMsg.showErr(errorInfoLable, msg: "Invalid !!!")
+            self.giveError("Invalid !!!")
         }
     }
     
@@ -47,11 +46,23 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     // private methods
     func startLoaderAnimation() {
         activityController.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
         activityController.startAnimating()
     }
+    
+    func giveError(msg: String){
+        errorInfoLable.text = msg;
+    }
+    
+    func alertError(activityController: UIActivityIndicatorView, msg: String) {
+        let viewController = ViewController()
+        activityController.stopAnimating()
+        let alert = UIAlertController(title: "Alert", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+        viewController.presentViewController(alert, animated: true, completion: nil)
+    }
+
 }
 

@@ -1,13 +1,13 @@
-//
-//  AlertMsg.swift
-//  ImageApp
-//
-//  Created by Gaurav k on 5/3/16.
-//  Copyright © 2016 Gaurav k. All rights reserved.
-//
-
 import UIKit
 
-class AlertMsg: NSObject {
-
+class AlertMsg {
+    init(){}
+    
+    func errorMsg(activityController: UIActivityIndicatorView, msg: String) {
+        let viewController = ViewController()
+        activityController.stopAnimating()
+        let alert = UIAlertController(title: "Alert", message: msg, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+        viewController.presentViewController(alert, animated: true, completion: nil)
+    }
 }
