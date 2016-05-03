@@ -1,23 +1,39 @@
-//
-//  ViewController.swift
-//  ImageApp
-//
-//  Created by Gaurav k on 4/29/16.
-//  Copyright © 2016 Gaurav k. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    // MARK : abcd
+    @IBOutlet weak var activityController: UIActivityIndicatorView!
     @IBOutlet weak var urlTextField: UITextField!
+    @IBOutlet weak var downloadedImage: UIImageView!
+    @IBOutlet weak var errorInfoLable: UILabel!
     
     @IBAction func submit(sender: UIButton) {
-        let iniputUrl = urlTextField.text ?? ""
-        if isValidUrl(iniputUrl) {
-            // do something
+        
+        let lableMsg = SetErrorMsgToLable()
+        let inputUrl = NSURL(string: urlTextField.text!)
+        
+        if let url = inputUrl {
+            startLoaderAnimation()
+            let request = NSURLRequest(URL: url)
+            let session = NSURLSession.sharedSession()
+            
+            session.dataTaskWithRequest(request, completionHandler: { (data, responce, error) in
+                dispatch_async(dispatch_get_main_queue(),{
+                    
+                    if let myImage = LoadImage().load(data) {
+                        self.downloadedImage.image = myImage
+                        self.activityController.stopAnimating()
+                    } else {
+                        print("else wala part")
+                        lableMsg.showErr(self.errorInfoLable, msg: "Invalid")
+                    }
+                })
+            }).resume()
+            
         } else {
-            // do somrthing
+            print("no... url with space")
+            lableMsg.showErr(errorInfoLable, msg: "Invalid !!!")
         }
     }
     
@@ -25,18 +41,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-   
     
-    func isValidUrl(url: String) -> Bool {
-        // check if url is valid or not
-        return false
+    
+    // private methods
+    func startLoaderAnimation() {
+        activityController.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+        activityController.startAnimating()
     }
-
-
 }
 
