@@ -6,5 +6,4 @@ class SetErrorMsgToLable {
     func showErr(errorInfoLable: UILabel, msg: String){
         errorInfoLable.text = msg;
     }
-    
 }
