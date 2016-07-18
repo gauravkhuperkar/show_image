@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  ImageApp
-//
-//  Created by Gaurav k on 4/29/16.
-//  Copyright © 2016 Gaurav k. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
