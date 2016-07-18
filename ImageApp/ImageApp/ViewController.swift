@@ -3,14 +3,25 @@ import UIKit
 class ViewController: UIViewController {
     
     // MARK : abcd
-    @IBOutlet weak var activityController: UIActivityIndicatorView!
+//    @IBOutlet weak var activityController: UIActivityIndicatorView!
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var downloadedImage: UIImageView!
-    @IBOutlet weak var errorInfoLable: UILabel!
+//    @IBOutlet weak var errorInfoLable: UILabel!
     
     @IBAction func submit(sender: UIButton) {
         
         let inputUrl = NSURL(string: urlTextField.text!)
+        
+        func load(data: NSData?) -> UIImage?{
+            if let imageData = data {
+                if let myImage = UIImage(data: imageData){
+                    return myImage
+                } else {
+                    return nil
+                }
+            }
+            return nil
+        }
         
         if let url = inputUrl {
             startLoaderAnimation()
@@ -22,7 +33,7 @@ class ViewController: UIViewController {
                     
                     if let myImage = LoadImage().load(data) {
                         self.downloadedImage.image = myImage
-                        self.activityController.stopAnimating()
+//                        self.activityController.stopAnimating()
                     } else {
                         print("else wala part")
                         self.giveError("Invalid")
@@ -48,12 +59,12 @@ class ViewController: UIViewController {
     
     // private methods
     func startLoaderAnimation() {
-        activityController.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
-        activityController.startAnimating()
+//        activityController.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.WhiteLarge
+//        activityController.startAnimating()
     }
     
     func giveError(msg: String){
-        errorInfoLable.text = msg;
+//        errorInfoLable.text = msg;
     }
     
     func alertError(activityController: UIActivityIndicatorView, msg: String) {
@@ -63,6 +74,6 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
         viewController.presentViewController(alert, animated: true, completion: nil)
     }
-
+    
 }
 
