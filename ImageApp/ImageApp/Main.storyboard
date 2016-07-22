@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="m6n-RI-JAV">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="kwo-UQ-IWe">
+            <objects>
+                <viewController id="m6n-RI-JAV" customClass="ViewController" customModule="ImageApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F9t-KK-M28"/>
+                        <viewControllerLayoutGuide type="bottom" id="KUP-Br-IDk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TU0-6l-gSI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LUi-3f-FIV">
+                                <rect key="frame" x="20" y="20" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vUK-bs-aUo">
+                                <rect key="frame" x="20" y="100" width="560" height="450"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LUi-3f-FIV" firstAttribute="leading" secondItem="TU0-6l-gSI" secondAttribute="leadingMargin" id="8Bk-Eb-dF5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LUi-3f-FIV" secondAttribute="trailing" id="B1o-Sy-ceX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vUK-bs-aUo" secondAttribute="trailing" id="SoA-Je-eL5"/>
+                            <constraint firstItem="LUi-3f-FIV" firstAttribute="top" secondItem="F9t-KK-M28" secondAttribute="bottom" id="TNI-lE-kwh"/>
+                            <constraint firstItem="vUK-bs-aUo" firstAttribute="top" secondItem="LUi-3f-FIV" secondAttribute="bottom" constant="50" id="aLK-34-N6w"/>
+                            <constraint firstItem="KUP-Br-IDk" firstAttribute="top" secondItem="vUK-bs-aUo" secondAttribute="bottom" constant="50" id="kaO-6E-vYM"/>
+                            <constraint firstItem="vUK-bs-aUo" firstAttribute="leading" secondItem="TU0-6l-gSI" secondAttribute="leadingMargin" id="v1j-dS-bee"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="downloadedImage" destination="vUK-bs-aUo" id="CQN-VI-vXq"/>
+                        <outlet property="urlTextField" destination="LUi-3f-FIV" id="jjZ-1g-aaN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HFp-DQ-oio" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="292" y="363"/>
+        </scene>
+    </scenes>
+</document>
