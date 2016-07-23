@@ -26,20 +26,46 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vUK-bs-aUo">
                                 <rect key="frame" x="20" y="100" width="560" height="450"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="N9K-eu-QBU">
+                                <rect key="frame" x="290" y="315" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bJ-pc-bHS">
+                                <rect key="frame" x="20" y="560" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3b-BK-7JM">
+                                <rect key="frame" x="20" y="60" width="560" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="submit:" destination="m6n-RI-JAV" eventType="touchUpInside" id="Yvp-mf-gET"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="LUi-3f-FIV" firstAttribute="leading" secondItem="TU0-6l-gSI" secondAttribute="leadingMargin" id="8Bk-Eb-dF5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LUi-3f-FIV" secondAttribute="trailing" id="B1o-Sy-ceX"/>
+                            <constraint firstItem="2bJ-pc-bHS" firstAttribute="top" secondItem="vUK-bs-aUo" secondAttribute="bottom" constant="10" id="G0D-0H-EJv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vUK-bs-aUo" secondAttribute="trailing" id="SoA-Je-eL5"/>
                             <constraint firstItem="LUi-3f-FIV" firstAttribute="top" secondItem="F9t-KK-M28" secondAttribute="bottom" id="TNI-lE-kwh"/>
+                            <constraint firstItem="U3b-BK-7JM" firstAttribute="leading" secondItem="TU0-6l-gSI" secondAttribute="leadingMargin" id="W2o-pU-jPr"/>
+                            <constraint firstItem="N9K-eu-QBU" firstAttribute="centerY" secondItem="vUK-bs-aUo" secondAttribute="centerY" id="ZyM-yv-9dX"/>
                             <constraint firstItem="vUK-bs-aUo" firstAttribute="top" secondItem="LUi-3f-FIV" secondAttribute="bottom" constant="50" id="aLK-34-N6w"/>
+                            <constraint firstItem="N9K-eu-QBU" firstAttribute="centerX" secondItem="vUK-bs-aUo" secondAttribute="centerX" id="bVk-Lv-kGc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2bJ-pc-bHS" secondAttribute="trailing" id="ctD-fd-2vD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U3b-BK-7JM" secondAttribute="trailing" id="ip7-AS-0CX"/>
                             <constraint firstItem="KUP-Br-IDk" firstAttribute="top" secondItem="vUK-bs-aUo" secondAttribute="bottom" constant="50" id="kaO-6E-vYM"/>
+                            <constraint firstItem="2bJ-pc-bHS" firstAttribute="leading" secondItem="TU0-6l-gSI" secondAttribute="leadingMargin" id="nts-jg-kJe"/>
                             <constraint firstItem="vUK-bs-aUo" firstAttribute="leading" secondItem="TU0-6l-gSI" secondAttribute="leadingMargin" id="v1j-dS-bee"/>
+                            <constraint firstItem="U3b-BK-7JM" firstAttribute="top" secondItem="LUi-3f-FIV" secondAttribute="bottom" constant="10" id="wc6-2E-Vds"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="N9K-eu-QBU" id="Ccl-Bx-hIV"/>
                         <outlet property="downloadedImage" destination="vUK-bs-aUo" id="CQN-VI-vXq"/>
+                        <outlet property="errorLabel" destination="2bJ-pc-bHS" id="YTS-Sq-8An"/>
                         <outlet property="urlTextField" destination="LUi-3f-FIV" id="jjZ-1g-aaN"/>
                     </connections>
                 </viewController>

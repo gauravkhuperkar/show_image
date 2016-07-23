@@ -3,10 +3,10 @@ import UIKit
 class ViewController: UIViewController {
     
     // MARK : abcd
-//    @IBOutlet weak var activityController: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var downloadedImage: UIImageView!
-//    @IBOutlet weak var errorInfoLable: UILabel!
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBAction func submit(sender: UIButton) {
         
